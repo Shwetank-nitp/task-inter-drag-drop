@@ -71,7 +71,7 @@ function Canvas() {
   const frame = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    requestAnimationFrame(frame);
+    animationFrameId.current = requestAnimationFrame(frame);
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "rgb(128, 128, 128)";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -105,8 +105,6 @@ function Canvas() {
     indexRef.current.addEventListener("mousemove", enterHandler);
 
     indexRef.current.addEventListener("mouseleave", exitHandler);
-
-    animationFrameId.current = requestAnimationFrame(frame);
 
     return () => {
       if (animationFrameId.current) {
