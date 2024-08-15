@@ -110,8 +110,8 @@ function Canvas() {
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
-      canvas.removeEventListener("mousemove", enterHandler);
-      canvas.removeEventListener("mouseleave", exitHandler);
+      indexRef.current.removeEventListener("mousemove", enterHandler);
+      indexRef.current.removeEventListener("mouseleave", exitHandler);
     };
   }, []);
 
